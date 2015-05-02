@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
 	Rigidbody2D body;
 	int layerMask = 1 << 2;
 
-    private enum Action {  Left, Right, Jump, Elevate, Action1, Hold };
+    private enum Action {  Left, Right, Jump, Elevate, Action1, Grab };
 
     private Dictionary<Action, KeyCode> Do = new Dictionary<Action, KeyCode>()
     {
@@ -17,10 +17,12 @@ public class Player : MonoBehaviour {
         {Action.Jump, KeyCode.Space},
         {Action.Elevate, KeyCode.W },
         {Action.Action1, KeyCode.F },
-        {Action.Hold, KeyCode.LeftShift}
+        {Action.Grab, KeyCode.LeftShift}
     };
 
     private float legs;
+    private bool grabbing_ = false;
+    public bool grabbing { get { return grabbing_; }  }
 
     // Use this for initialization
     void Start () {
@@ -67,10 +69,13 @@ public class Player : MonoBehaviour {
             //get from script attached to level Action Map
         }
 
-        // Hold 
-        if (Input.GetKey(Do[Action.Hold]))
-        {
-            
-        }
+        // Grabbing 
+        grabbing_ = (Input.GetKey(Do[Action.Grab]));
+
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        
     }
 }
