@@ -52,15 +52,10 @@ public class Holdable : MonoBehaviour
             return;
         }
 
+        //do main logic here
         if (nearby && player.grabbing)
         {
             this.transform.position = player.transform.position;
-        }
-        else
-        {
-//            Vector2 playerVel = player.GetComponent<Rigidbody2D>().velocity;
-//            Vector2 holdableVel = this.rigidbody2d.velocity;
-//            this.rigidbody2d.velocity = new Vector2(playerVel.x, holdableVel.y);
         }
 
     }
@@ -72,10 +67,7 @@ public class Holdable : MonoBehaviour
             player = other.gameObject.GetComponent<Player>();
             nearby = true;
         }
-
-
     }
-
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -91,6 +83,5 @@ public class Holdable : MonoBehaviour
         {
             nearby = false;
         }
-
     }
 }

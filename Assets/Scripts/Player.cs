@@ -23,6 +23,9 @@ public class Player : MonoBehaviour {
     private float legs;
     private bool grabbing_ = false;
     public bool grabbing { get { return grabbing_; }  }
+    private bool activating_ = false;
+    public bool activating { get { return activating_; } }
+
 
     // Use this for initialization
     void Start () {
@@ -64,13 +67,12 @@ public class Player : MonoBehaviour {
         }
 
         // Action1 (launch mail)
-        if (Input.GetKeyDown(Do[Action.Action1]))
-        {
-            //get from script attached to level Action Map
-        }
+        activating_ = (Input.GetKeyDown(Do[Action.Action1]));
 
         // Grabbing 
         grabbing_ = (Input.GetKey(Do[Action.Grab]));
+
+        
 
     }
 
