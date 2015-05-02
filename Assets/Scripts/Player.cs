@@ -72,14 +72,14 @@ public class Player : MonoBehaviour {
                 //get from script attached to level Action Map
             }
 
-<<<<<<< HEAD
             // Hold 
-            if (Input.GetKey(Do[Action.Hold]))
+
+            if (Input.GetKey(Do[Action.Grab]))
             {
             
             }
         }
-=======
+
         // Grabbing 
         grabbing_ = (Input.GetKey(Do[Action.Grab]));
 
@@ -87,7 +87,6 @@ public class Player : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        
->>>>>>> 73e45cf9583bd6277d3298a8650e582fd0ff3cb5
+
     }
 }
