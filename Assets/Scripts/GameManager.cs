@@ -10,9 +10,7 @@ public class GameManager : MonoBehaviour {
 	private int currentFloor = 0;
 
 	void Start () {
-		totalLevels = totalLevels - (totalLevels % 3);
 		totalFloors = totalLevels + 2;
-		floorArray = new GameObject[totalFloors];
 	}
 
 	public void Promote () {

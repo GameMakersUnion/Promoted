@@ -12,10 +12,11 @@ public class TowerGenerator : MonoBehaviour {
 	void Start () {
 		gameManager = GameObject.Find ("GameManager").GetComponent<GameManager> ();
 		levels = gameManager.totalLevels;
+		gameManager.floorArray = new GameObject[levels + 2];
 		GenerateTower ();
 	}
 
-	private void GenerateTower () {		GameObject level;
+	private void GenerateTower () {
 		int rand;
 		AddFloor (levelLobby, 0);
 		for (int i = 1; i <= levels; i++) {
