@@ -4,8 +4,10 @@ using System.Collections;
 public class Treadmill : MonoBehaviour {
     private GameObject playerObject;
     private GameObject inputObject;
+    private GameObject laundryManager;
     private Player playerScript;
     private LaundryIn laundryIn;
+    private LaundryManager laundryManagerScript;
     private bool gameStart;
     private bool isComplete;
     private bool isRight;
@@ -14,9 +16,13 @@ public class Treadmill : MonoBehaviour {
         //Find References of Objects
         playerObject = GameObject.Find("Player") as GameObject;
         inputObject = GameObject.Find("LaundryInput") as GameObject;
+        laundryManager = GameObject.Find("LaundryManager") as GameObject;
+
         //Find References of Components
         playerScript = playerObject.GetComponent("Player") as Player;
         laundryIn = inputObject.GetComponent("LaundryIn") as LaundryIn;
+        laundryManagerScript = inputObject.GetComponent("LaundryManager") as LaundryManager;
+
         gameStart = false;
         isComplete = false;
     }
@@ -36,6 +42,7 @@ public class Treadmill : MonoBehaviour {
             {
                 isRight = !isRight;
             }
+            if (true) { }
 
         }
 	}

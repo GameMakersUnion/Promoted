@@ -7,12 +7,13 @@ public class Money : MonoBehaviour {
     private float startTime;
     private float timeFactor;
     private float spawnForce = 250.0f; //The force that the money is shot out
-    private float laundryForce = 20.0f; //The force that the money is spun
+    private float laundryForce = 0.5f; //The force that the money is spun
     private float spawnTorque = 3.0f;
     private Rigidbody2D rb;
     private bool isComplete = false;
     private GameObject output;
     private GameObject accountPipe;
+    private GameObject laundryManager;
     // Use this for initialization
     void Start () {
         render = GetComponent<SpriteRenderer>();
@@ -23,7 +24,8 @@ public class Money : MonoBehaviour {
         rb.AddForce(Vector2.right * spawnForce);
         rb.AddTorque(spawnTorque * Random.Range(-2, 2));
         output = GameObject.Find("LaundryOutput");
-        rb.gravityScale = 0.0f;
+        laundryManager = GameObject.Find("LaundryManager");
+        rb.gravityScale = 1.0f;
 
     }
 	
@@ -32,7 +34,7 @@ public class Money : MonoBehaviour {
         timeFactor = (Time.time - startTime)/duration - 0.2f;
         render.color = new Color((0.2f + timeFactor), (0.2f + timeFactor), (0.2f + timeFactor), 1.0f);
         //if(!isComplete)
-        //    rb.AddForce(WashingMachineForce() * laundryForce);
+        //   rb.AddForce(WashingMachineForce() * laundryForce, ForceMode2D.Impulse);
         if(timeFactor > 1.0f && !isComplete)
         {
             rb.gravityScale = 1.0f;
@@ -41,6 +43,9 @@ public class Money : MonoBehaviour {
                 transform.position = output.transform.position;
                 rb.AddForce(Vector2.right * spawnForce * 1.85f);
             }
+            LaundryManager lm = laundryManager.GetComponent("LaundryManager") as LaundryManager;
+            lm.MoneyCleaned();
+            Debug.Log(lm);
             isComplete = true;
         }
     }
