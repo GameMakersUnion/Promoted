@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
 	int layerMask = 1 << 2;
     public bool isControllable; //I know public access is bad, =P - Victor
 
-    private enum Action {  Left, Right, Jump, Elevate, Action1, Hold };
+    private enum Action {  Left, Right, Jump, Elevate, Action1, Grab };
 
     private Dictionary<Action, KeyCode> Do = new Dictionary<Action, KeyCode>()
     {
@@ -18,10 +18,12 @@ public class Player : MonoBehaviour {
         {Action.Jump, KeyCode.Space},
         {Action.Elevate, KeyCode.W },
         {Action.Action1, KeyCode.F },
-        {Action.Hold, KeyCode.LeftShift}
+        {Action.Grab, KeyCode.LeftShift}
     };
 
     private float legs;
+    private bool grabbing_ = false;
+    public bool grabbing { get { return grabbing_; }  }
 
     // Use this for initialization
     void Start () {
@@ -70,11 +72,22 @@ public class Player : MonoBehaviour {
                 //get from script attached to level Action Map
             }
 
+<<<<<<< HEAD
             // Hold 
             if (Input.GetKey(Do[Action.Hold]))
             {
             
             }
         }
+=======
+        // Grabbing 
+        grabbing_ = (Input.GetKey(Do[Action.Grab]));
+
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        
+>>>>>>> 73e45cf9583bd6277d3298a8650e582fd0ff3cb5
     }
 }
