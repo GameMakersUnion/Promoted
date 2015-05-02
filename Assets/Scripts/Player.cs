@@ -7,8 +7,9 @@ public class Player : MonoBehaviour {
 	public float jumpPower = 10;
 	Rigidbody2D body;
 	int layerMask = 1 << 2;
+    public bool isControllable; //I know public access is bad, =P - Victor
 
-    private enum Action {  Left, Right, Jump, Elevate, Action1, Hold };
+    private enum Action {  Left, Right, Jump, Elevate, Action1, Grab };
 
     private Dictionary<Action, KeyCode> Do = new Dictionary<Action, KeyCode>()
     {
@@ -17,16 +18,19 @@ public class Player : MonoBehaviour {
         {Action.Jump, KeyCode.Space},
         {Action.Elevate, KeyCode.W },
         {Action.Action1, KeyCode.F },
-        {Action.Hold, KeyCode.LeftShift}
+        {Action.Grab, KeyCode.LeftShift}
     };
 
     private float legs;
+    private bool grabbing_ = false;
+    public bool grabbing { get { return grabbing_; }  }
 
     // Use this for initialization
     void Start () {
 		body = gameObject.GetComponent<Rigidbody2D> ();
 		layerMask = ~layerMask;
-	}
+        isControllable = true;
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -36,41 +40,54 @@ public class Player : MonoBehaviour {
 
     void FixedUpdate()
     {
-        // Horizontal movement
-        if (Input.GetKey(Do[Action.Left]))
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-            body.velocity = new Vector2(-speed, body.velocity.y);
-        }
-        else if (Input.GetKey(Do[Action.Right]))
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-            body.velocity = new Vector2(speed, body.velocity.y);
-        }
-        // Vertical movement
-        if (Input.GetKeyDown(Do[Action.Jump]))
-        {
-            if (Physics2D.Raycast(transform.position, Vector3.down, legs*1.1f, layerMask))
+        if (isControllable) { 
+            // Horizontal movement
+            if (Input.GetKey(Do[Action.Left]))
             {
-                body.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
+                transform.localScale = new Vector3(1f, 1f, 1f);
+                body.velocity = new Vector2(-speed, body.velocity.y);
+            }
+            else if (Input.GetKey(Do[Action.Right]))
+            {
+                transform.localScale = new Vector3(-1f, 1f, 1f);
+                body.velocity = new Vector2(speed, body.velocity.y);
+            }
+            // Vertical movement
+            if (Input.GetKeyDown(Do[Action.Jump]))
+            {
+                if (Physics2D.Raycast(transform.position, Vector3.down, legs*1.1f, layerMask))
+                {
+                    body.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
+                }
+            }
+            // Elevate 
+            if (Input.GetKey(Do[Action.Elevate]))
+            {
+                //liam does this
+            }
+
+            // Action1 (launch mail)
+            if (Input.GetKeyDown(Do[Action.Action1]))
+            {
+                //get from script attached to level Action Map
+            }
+
+<<<<<<< HEAD
+            // Hold 
+            if (Input.GetKey(Do[Action.Hold]))
+            {
+            
             }
         }
-        // Elevate 
-        if (Input.GetKey(Do[Action.Elevate]))
-        {
-            //liam does this
-        }
+=======
+        // Grabbing 
+        grabbing_ = (Input.GetKey(Do[Action.Grab]));
 
-        // Action1 (launch mail)
-        if (Input.GetKeyDown(Do[Action.Action1]))
-        {
-            //get from script attached to level Action Map
-        }
+    }
 
-        // Hold 
-        if (Input.GetKey(Do[Action.Hold]))
-        {
-            
-        }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        
+>>>>>>> 73e45cf9583bd6277d3298a8650e582fd0ff3cb5
     }
 }
