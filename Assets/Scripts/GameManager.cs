@@ -17,5 +17,6 @@ public class GameManager : MonoBehaviour {
 
 	public void Promote () {
 		currentFloor++;
+		// stop previous level, play animaiton, start next level
 	}
 }
