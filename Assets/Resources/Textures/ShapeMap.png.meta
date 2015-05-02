@@ -1,0 +1,223 @@
+fileFormatVersion: 2
+guid: 5f9366922bd4fbe41818ea03c628bf3d
+timeCreated: 1429389242
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ShapeMap_0
+    21300002: ShapeMap_1
+    21300004: ShapeMap_2
+    21300006: ShapeMap_3
+    21300008: ShapeMap_4
+    21300010: ShapeMap_5
+    21300012: ShapeMap_6
+    21300014: ShapeMap_7
+    21300016: ShapeMap_8
+    21300018: ShapeMap_9
+    21300020: ShapeMap_10
+    21300022: ShapeMap_11
+    21300024: ShapeMap_12
+    21300026: ShapeMap_13
+    21300028: ShapeMap_14
+    21300030: ShapeMap_15
+    21300032: ShapeMap_16
+    21300034: ShapeMap_17
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 70
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ShapeMap_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 276
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ShapeMap_1
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 290
+        width: 89
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ShapeMap_2
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 279
+        width: 84
+        height: 72
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ShapeMap_3
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 280
+        width: 70
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ShapeMap_4
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 281
+        width: 69
+        height: 69
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ShapeMap_6
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 149
+        width: 57
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ShapeMap_7
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 146
+        width: 61
+        height: 94
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ShapeMap_8
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 172
+        width: 108
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ShapeMap_9
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 171
+        width: 96
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ShapeMap_10
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 154
+        width: 85
+        height: 81
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ShapeMap_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 22
+        width: 77
+        height: 88
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ShapeMap_13
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 25
+        width: 84
+        height: 82
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ShapeMap_14
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 22
+        width: 88
+        height: 88
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ShapeMap_15
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 24
+        width: 85
+        height: 84
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ShapeMap_16
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 24
+        width: 80
+        height: 84
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
