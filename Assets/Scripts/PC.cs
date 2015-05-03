@@ -47,6 +47,11 @@ public class PC : MonoBehaviour
 
 //        Debug.Log(this.name + ": " + state + ", " + timeToCrash +","+ timeBooting + ", " + timeCrashed + ", " + health_);
 
+        if (pcManager.hasWon)
+        {
+            return;
+        }
+
         //exit early
         if (state == State.Burnt)
         {

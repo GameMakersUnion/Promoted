@@ -10,10 +10,12 @@ public class PCManager : MonoBehaviour
     //private const int goalReboots = 15;
     private const int goalLiving = 3;
     public int reboots = 0;
-    private float time = 60f;
+    private float time = 20f;
     private Text textTimer;
     private Text textPCs;
     private Text textReboots;
+    public bool hasWon = false;
+    public bool hasLost = false;
 
     // Use this for initialization
     void Start ()
@@ -25,33 +27,31 @@ public class PCManager : MonoBehaviour
 
         textPCs = GameObject.Find("Canvas/PCs/Outline").GetComponent<Text>();
 
-        textReboots = GameObject.Find("Canvas/Reboots/Outline").GetComponent<Text>();
-
 
 	}
 
     // Update is called once per frame
     void Update ()
     {
-        time -= Time.deltaTime;
+        
+        if (time > 0)
+        {
+            time -= Time.deltaTime;
+        }
+
         textTimer.text = Mathf.CeilToInt(time).ToString();
 
         textPCs.text = Living().ToString();
 
-        if (PCs.Count <= 5)
-        {
-            textPCs.color = Color.green;
-        }
-
-        else if (PCs.Count <= 3)
-        {
-            textPCs.color = Color.red;
-        }
-
-        else if (PCs.Count <= 1)
-        {
-            textPCs.color = Color.gray;
-        }
+        if(!hasLost)
+            if (CheckFailCondition())
+            {
+                hasLost = true;
+            }
+            else
+            {
+                CheckWinCondition();
+            }
 
     }
 
@@ -70,15 +70,33 @@ public class PCManager : MonoBehaviour
 
     bool CheckWinCondition()
     {
-        if (time <= 0 && PCs.Count > goalLiving)
+        if (time <= 0 && PCs.Count >= goalLiving)
         {
-
+            hasWon = true;
+            GetComponentInChildren<Elevator>().Promote();
             return true;
         }
         else
         {
             return false;
         }
+    }
+
+    bool CheckFailCondition()
+    {
+        Debug.Log(Living());
+
+        if (time <= 0 && Living() < goalLiving || Living() <= 0)
+        {
+            Debug.Log("FAILED");
+            GetComponentInChildren<Elevator>().Demote();
+            GameObject killme = this.gameObject;
+            GameObject birthme = Resources.Load<GameObject>("Prefabs/Levels/Level_B_02");
+            //GameObject.Find("GameManager").GetComponent<GameManager>().Restart(killme, birthme);
+            //restart
+            return true;
+        }
+        return false;
     }
 
 }

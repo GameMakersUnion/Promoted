@@ -76,4 +76,9 @@ public class Elevator : MonoBehaviour {
         isOpen = true;
         gameManager.Promote(); // Increment The Level
     }
+
+    public void Demote()
+    {
+        Debug.Log("YOU HAVE BEEN DEMOTED!");
+    }
 }
