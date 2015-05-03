@@ -11,6 +11,9 @@ public class Mail : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb.AddTorque(Random.Range(0.0f, 1.0f));
+            SoundManager.Play(SoundManager.Sounds.Woosh);
+
+
     }
 	
 	// Update is called once per frame
