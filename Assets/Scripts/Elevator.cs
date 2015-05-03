@@ -81,7 +81,7 @@ public class Elevator : MonoBehaviour {
     void OnTriggerEnter2D (Collider2D other) {
 		if (other.tag == "Player") {
 			isOnElevator = true;
-            SoundManager.Play(SoundManager.Sounds.ElevatorMusic);
+            //SoundManager.Play(SoundManager.Sounds.ElevatorMusic);
         }
 	}
 
@@ -98,6 +98,7 @@ public class Elevator : MonoBehaviour {
         gameManager.Promote(); // Increment The Level
         anim.SetBool("Opening", true);
         anim.SetBool("Closing", false);
+        Debug.Log("YOU HAVE BEEN Promoted!");
         SoundManager.Play(SoundManager.Sounds.Promotion);
     }
 
