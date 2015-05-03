@@ -11,7 +11,7 @@ public class PC : PCManager
     private Player player;
 
     private const float TIME_TO_BOOT = 3f;
-    private const float TIME_TO_FLAMES = 3f;
+    private const float TIME_TO_FLAMES = 6f;
     private float timeToCrashStart; 
     private float timeToCrash; //assigned on start
     private float health = 5f;  
@@ -33,7 +33,7 @@ public class PC : PCManager
         animator = gameObject.GetComponent<Animator>();
         animator.SetBool("stable", true);
         player =  GameObject.FindWithTag("Player").GetComponent<Player>();
-        timeToCrashStart = Random.Range(TIME_TO_BOOT + 1f, TIME_TO_BOOT + 1f);
+        timeToCrashStart = Random.Range(TIME_TO_BOOT + 1f, TIME_TO_BOOT + 6f);
         timeToCrash = timeToCrashStart;
         PCs.Add(this);
     }
@@ -41,7 +41,8 @@ public class PC : PCManager
     private void Update()
     {
 
-        Debug.Log(this.name + ": " + state + ", " + timeToCrash +","+ timeBooting + ", " + timeCrashed + ", " + health);
+//        Debug.Log(this.name + ": " + state + ", " + timeToCrash +","+ timeBooting + ", " + timeCrashed + ", " + health);
+
         //exit early
         if (state == State.Burnt)
         {
@@ -77,7 +78,7 @@ public class PC : PCManager
             state = State.Crashed;
             animator.SetBool("stable", false);
             animator.SetBool("crashed", true);
-            Debug.Log("CRASHED");
+//            Debug.Log("CRASHED");
         }
 
         //VERY unstable 'puter
@@ -136,16 +137,6 @@ public class PC : PCManager
         }
 
 
-    }
-
-    void Crashing()
-    {
-        
-    }
-
-    void Rebooting()
-    {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
