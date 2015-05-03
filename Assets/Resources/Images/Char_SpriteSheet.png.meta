@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 5c3ea19697b134b9c9a33fab0340eee0
-timeCreated: 1430610346
+timeCreated: 1430639794
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -17,6 +17,13 @@ TextureImporter:
     21300020: Char_SpriteSheet_10
     21300022: Char_SpriteSheet_11
     21300024: Char_SpriteSheet_12
+    21300026: Char_SpriteSheet_13
+    21300028: Char_SpriteSheet_14
+    21300030: Char_SpriteSheet_15
+    21300032: Char_SpriteSheet_16
+    21300034: Char_SpriteSheet_17
+    21300036: Char_SpriteSheet_18
+    21300038: Char_SpriteSheet_19
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -188,6 +195,76 @@ TextureImporter:
         x: 259
         y: 0
         width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Char_SpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 0
+        width: 27
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Char_SpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 0
+        width: 20
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Char_SpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 14
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Char_SpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 20
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Char_SpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 0
+        width: 16
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Char_SpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 0
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Char_SpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 0
+        width: 22
         height: 40
       alignment: 0
       pivot: {x: 0, y: 0}

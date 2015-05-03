@@ -16,7 +16,7 @@ public class MarketingCanvas : MonoBehaviour {
             var cols = rend.sprite.texture.GetPixels(mip);
             for (var i = 0; i < cols.Length; ++i)
             {
-                cols[i] = Color.black;
+                cols[i] = Color.clear;
             }
             rend.sprite.texture.SetPixels(cols, mip);
            // var OffsetX = (target.position.x - transform.position.x) / myWidth;

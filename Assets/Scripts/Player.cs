@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Player : MonoBehaviour {
 	public float speed = 4;
 	public float jumpPower = 10;
+    public bool useBucket;
 	Rigidbody2D body;
 	int layerMask = ((1 << 2) | (1 << 9));
     public bool isControllable; //I know public access is bad, =P - Victor
@@ -53,17 +54,34 @@ public class Player : MonoBehaviour {
                 transform.localScale = new Vector3(1f, 1f, 1f);
                 body.velocity = new Vector2(-speed, body.velocity.y);
                 anim.SetBool("isRunning", true);
+                if (useBucket)
+                    anim.SetBool("useBucket", true);
+                else
+                    anim.SetBool("useBucket", false);
             }
             else if (Input.GetKey(Do[Action.Right]))
             {
                 transform.localScale = new Vector3(-1f, 1f, 1f);
                 body.velocity = new Vector2(speed, body.velocity.y);
                 anim.SetBool("isRunning", true);
+                if (useBucket)
+                    anim.SetBool("useBucket", true);
+                else
+                    anim.SetBool("useBucket", false);
             }
             else
             {
                 anim.SetBool("isRunning", false);
-                anim.Play("Idle");
+                if (useBucket) { 
+                    anim.SetBool("useBucket", true);
+                    anim.Play("IdleBucket");
+                }
+                else { 
+                    anim.SetBool("useBucket", false);
+                    anim.Play("Idle");
+                }
+                
+                
             }
             // Vertical movement
             if (Input.GetKeyDown(Do[Action.Jump]))
