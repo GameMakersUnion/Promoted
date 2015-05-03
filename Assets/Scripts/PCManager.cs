@@ -52,7 +52,7 @@ public class PCManager : MonoBehaviour
 //        textTimer.text = Mathf.CeilToInt(time).ToString();
 //
 //        textPCs.text = Living().ToString();
-
+    if(!hasWon)///////[
         if(!hasLost && PCs.Count > 0)
             if (CheckFailCondition())
             {
@@ -62,7 +62,7 @@ public class PCManager : MonoBehaviour
             {
                 CheckWinCondition();
             }
-
+    /////]
     }
 
     float Living()

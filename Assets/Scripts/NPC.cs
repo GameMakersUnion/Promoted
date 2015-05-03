@@ -53,8 +53,10 @@ public class NPC : MonoBehaviour
 
         }
 
-        transform.localScale = new Vector3(1f, 1f, 1f);
+//        Debug.Log(walkDir);
+        transform.localScale = new Vector3(1f * -walkDir, 1f, 1f);
         body.velocity = new Vector2( speed * walkDir, body.velocity.y);
+
 
     }
 
