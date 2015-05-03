@@ -7,7 +7,7 @@ public class FireCastManager : MonoBehaviour
     private GameObject player;
     public bool playerInside = false;
     private const float FIRE_GOAL = 5;
-    private float firedCount = 0;
+    public float firedCount = 0;
     private bool hasWon = false;
 
 
@@ -49,12 +49,14 @@ public class FireCastManager : MonoBehaviour
             match.GetComponent<Rigidbody2D>().AddForce(new Vector2(4 * dir, 1) * 100f);
             match.GetComponent<Rigidbody2D>().AddTorque(500f);
             match.AddComponent<Fire>();
+	        match.transform.parent = this.transform;
 
 	    }
 
         //activate win cond:
         if (firedCount > FIRE_GOAL && !hasWon)
         {
+            Debug.Log("WON");
             hasWon = true;
             GetComponentInChildren<Elevator>().Promote();
         }
