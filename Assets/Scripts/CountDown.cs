@@ -19,6 +19,8 @@ public class CountDown : MonoBehaviour {
 			text1.text = currentTime.ToString ();
 			text2.text = currentTime.ToString ();
 		} else {
+			text1.text = "GAME OVER";
+			text2.text = "GAME OVER";
 			// GAME OVER
 		}
 	}

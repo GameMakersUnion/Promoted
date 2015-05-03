@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
 	Rigidbody2D body;
 	int layerMask = 1 << 2;
     public bool isControllable; //I know public access is bad, =P - Victor
+	Animator anim;
 
     private enum Action {  Left, Right, Jump, Elevate, Action1, Grab };
 
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+		anim = GetComponent<Animator> ();
 		body = gameObject.GetComponent<Rigidbody2D> ();
 		layerMask = ~layerMask;
         isControllable = true;
@@ -46,12 +48,18 @@ public class Player : MonoBehaviour {
             {
                 transform.localScale = new Vector3(1f, 1f, 1f);
                 body.velocity = new Vector2(-speed, body.velocity.y);
+				anim.SetBool ("isRunning", true);
             }
             else if (Input.GetKey(Do[Action.Right]))
             {
                 transform.localScale = new Vector3(-1f, 1f, 1f);
                 body.velocity = new Vector2(speed, body.velocity.y);
+				anim.SetBool ("isRunning", true);
             }
+			else {
+				anim.SetBool ("isRunning", false);
+				anim.Play ("Idle");
+			}
             // Vertical movement
             if (Input.GetKeyDown(Do[Action.Jump]))
             {
