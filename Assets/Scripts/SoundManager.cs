@@ -58,7 +58,7 @@ public class SoundManager : MonoBehaviour {
     {
         //Should attach to main camera
         if (sounds[Sounds.ComputerStart] != null) {
-            AudioSource.PlayClipAtPoint(sounds[sound], transform.position, 1.0f);
+            AudioSource.PlayClipAtPoint(sounds[sound], new Vector2(0.0f,0.0f), 1.0f);
         }
         
         
