@@ -45,31 +45,33 @@ public class Player : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (isControllable) { 
+        if (isControllable)
+        {
             // Horizontal movement
             if (Input.GetKey(Do[Action.Left]))
             {
                 transform.localScale = new Vector3(1f, 1f, 1f);
                 body.velocity = new Vector2(-speed, body.velocity.y);
-				anim.SetBool ("isRunning", true);
+                anim.SetBool("isRunning", true);
             }
             else if (Input.GetKey(Do[Action.Right]))
             {
                 transform.localScale = new Vector3(-1f, 1f, 1f);
                 body.velocity = new Vector2(speed, body.velocity.y);
-				anim.SetBool ("isRunning", true);
+                anim.SetBool("isRunning", true);
             }
-			else {
-				anim.SetBool ("isRunning", false);
-				anim.Play ("Idle");
-			}
+            else
+            {
+                anim.SetBool("isRunning", false);
+                anim.Play("Idle");
+            }
             // Vertical movement
             if (Input.GetKeyDown(Do[Action.Jump]))
             {
-                RaycastHit2D other = Physics2D.Raycast(transform.position, Vector3.down, legs * 1.1f, layerMask);
+                RaycastHit2D other = Physics2D.Raycast(transform.position, Vector3.down, legs*1.1f, layerMask);
                 if (other)
                 {
-                    if(!other.collider.isTrigger) //No more wall jumping on triggers =P - Vic
+                    if (!other.collider.isTrigger) //No more wall jumping on triggers =P - Vic
                         body.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
                 }
             }
@@ -85,23 +87,13 @@ public class Player : MonoBehaviour {
                 //get from script attached to level Action Map
             }
 
-<<<<<<< HEAD
-        // Action1 (launch mail)
-        activating_ = (Input.GetKeyDown(Do[Action.Action1]));
-=======
+            // Action1 (launch mail)
+            activating_ = (Input.GetKeyDown(Do[Action.Action1]));
+
             // Hold 
+            grabbing_ = (Input.GetKey(Do[Action.Grab]));
 
-            if (Input.GetKey(Do[Action.Grab]))
-            {
-            
-            }
         }
->>>>>>> origin/master
-
-        // Grabbing 
-        grabbing_ = (Input.GetKey(Do[Action.Grab]));
-
-        
 
     }
 

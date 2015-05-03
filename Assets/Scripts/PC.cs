@@ -11,7 +11,7 @@ public class PC : PCManager
     private Player player;
 
     private const float TIME_TO_BOOT = 3f;
-    private const float TIME_TO_FLAMES = 6f;
+    private const float TIME_TO_FLAMES = 4f;
     private float timeToCrashStart; 
     private float timeToCrash; //assigned on start
     private float health = 5f;  
