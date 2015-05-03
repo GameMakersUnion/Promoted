@@ -513,6 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   jumpPower: 10
+  useBucket: 0
   isControllable: 0
 --- !u!95 &898128419
 Animator:
@@ -708,6 +709,10 @@ Prefab:
     - target: {fileID: 455868, guid: d8c98a542679f40539edc9d91019701f, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 431242, guid: d8c98a542679f40539edc9d91019701f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .400000006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8c98a542679f40539edc9d91019701f, type: 2}
