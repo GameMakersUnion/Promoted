@@ -63,9 +63,11 @@ public class Player : MonoBehaviour {
             // Vertical movement
             if (Input.GetKeyDown(Do[Action.Jump]))
             {
-                if (Physics2D.Raycast(transform.position, Vector3.down, legs*1.1f, layerMask))
+                RaycastHit2D other = Physics2D.Raycast(transform.position, Vector3.down, legs * 1.1f, layerMask);
+                if (other)
                 {
-                    body.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
+                    if(!other.collider.isTrigger) //No more wall jumping on triggers =P - Vic
+                        body.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
                 }
             }
             // Elevate 
