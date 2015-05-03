@@ -9,8 +9,8 @@ public class Elevator : MonoBehaviour {
     private GameManager gameManager;
     private GameObject playerObject;
     private Player playerScript;
-    private float elevatorSpeed = 1.0f;
     private Animator anim;
+    private float elevatorSpeed = 1.0f;
     private float elevatorOffset = 4.0f; //How far should the elevator go up
     private float elevatorStart;
 
@@ -32,6 +32,7 @@ public class Elevator : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        
         if (isActive) {
             if (Input.GetKeyDown(KeyCode.Alpha0))
             {
@@ -39,13 +40,19 @@ public class Elevator : MonoBehaviour {
             }
             if (isOpen && isOnElevator)
             {
-
+                if(anim.GetBool("Opening") == true && isOnElevator) {
+                    anim.SetBool("Closing", true);
+                    anim.SetBool("Opening", false);
+                }
                 if (Mathf.Abs(transform.position.y - elevatorStart) > elevatorOffset) // We reached our floor
                 {
                     //Probably play elevator music
                     playerScript.isControllable = true; //Enable the player
                     isOpen = false; // We can close up
                     isActive = false;
+                    anim.SetBool("Opening", true);
+                    anim.SetBool("Closing", false);
+
                 }
                 else
                 {
@@ -53,28 +60,44 @@ public class Elevator : MonoBehaviour {
                     playerScript.isControllable = false; //Disable the player
                     transform.position = new Vector2(transform.position.x, transform.position.y + elevatorSpeed * Time.deltaTime);
                     playerObject.transform.position = new Vector2(transform.position.x, transform.position.y - 0.2f); //Follow the Elevator
+                    //anim.SetBool("Opening", false);
+                    //anim.SetBool("Closing", true);
                 }
 
                 }
+           
+        }else
+        {
+            //anim.SetBool("Opening", false);
+            //anim.SetBool("Closing", true);
         }
+    }
+
+    void StateMachine()
+    {
+
     }
 
     void OnTriggerEnter2D (Collider2D other) {
 		if (other.tag == "Player") {
 			isOnElevator = true;
-		}
+            SoundManager.Play(SoundManager.Sounds.ElevatorMusic);
+        }
 	}
 
 	void OnTriggerExit2D (Collider2D other) {
 		if (other.tag == "Player") {
 			isOnElevator = false;
-		}
+            
+        }
 	}
 
     public void Promote()
     {
         isOpen = true;
         gameManager.Promote(); // Increment The Level
+        anim.SetBool("Opening", true);
+        anim.SetBool("Closing", false);
     }
 
     public void Demote()
