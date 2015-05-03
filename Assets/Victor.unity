@@ -199,7 +199,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 324789607}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bf9ed37157ad44fdbf82c9beda6d824, type: 3}
   m_Name: 
@@ -671,7 +671,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 250, y: 30}
   m_Pivot: {x: .5, y: .5}
---- !u!1001 &1481417956
+--- !u!1001 &1886545975
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2

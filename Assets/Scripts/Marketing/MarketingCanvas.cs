@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MarketingCanvas : MonoBehaviour {
+public class MarketingCanvas : MonoBehaviour
+{
     private SpriteRenderer rend;
     private Color[] colors;
     private MarketingManager marketingManager;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         rend = GetComponent("SpriteRenderer") as SpriteRenderer;
         marketingManager = GetComponentInParent<MarketingManager>();
         int mipCount = Mathf.Min(3, rend.sprite.texture.mipmapCount);
@@ -19,7 +21,7 @@ public class MarketingCanvas : MonoBehaviour {
                 cols[i] = Color.clear;
             }
             rend.sprite.texture.SetPixels(cols, mip);
-           // var OffsetX = (target.position.x - transform.position.x) / myWidth;
+            // var OffsetX = (target.position.x - transform.position.x) / myWidth;
             //var OffsetZ = (target.position.z - transform.position.z) / myLength;
 
             //rend.sprite.textureRectOffset.x;//.material.SetTextureOffset("_MainTex", Vector2(OffsetX, OffsetZ));
@@ -30,20 +32,22 @@ public class MarketingCanvas : MonoBehaviour {
         //clone.SetPixel(0, 0, Color.red);
         rend.sprite.texture.Apply();
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+
+    }
     void OnTriggerStay2D(Collider2D other)
     {
-        if(other.tag == "MarketingPaint" && !marketingManager.isHolding)
+        if (other.tag == "MarketingPaint" && !marketingManager.isHolding)
         {
-        
+
 
             if (other.name == "PaintRed")
             {
-                
+
                 Collider2D otherCollider = other.GetComponent("Collider2D") as Collider2D;
                 //SpriteRenderer renderer = otherCollider.GetComponentInChildren<SpriteRenderer>();
 
@@ -58,9 +62,9 @@ public class MarketingCanvas : MonoBehaviour {
                     for (int y = -4; y < 4; y++)
                     {
                         Color old = tex.GetPixel(x + Mathf.RoundToInt(uv.x * 32.0f), y + Mathf.RoundToInt(uv.y * 30.0f));
-                        tex.SetPixel(x + Mathf.RoundToInt(uv.x * 32.0f), y + Mathf.RoundToInt(uv.y * 30.0f), old+Color.red);
+                        tex.SetPixel(x + Mathf.RoundToInt(uv.x * 32.0f), y + Mathf.RoundToInt(uv.y * 30.0f), old + Color.red);
                     }
-                        
+
 
                 tex.Apply();
                 /*
@@ -78,8 +82,8 @@ public class MarketingCanvas : MonoBehaviour {
                 Texture2D tex = rend.sprite.texture;
 
                 Vector2 uv;
-                uv.x = ((other.transform.position.x + 0.7f - (transform.position.x- (tex.width/2/32))));
-                uv.y = ((other.transform.position.y + 0.5f - (transform.position.y- (tex.height/2/32))));
+                uv.x = ((other.transform.position.x + 0.7f - (transform.position.x - (tex.width / 2 / 32))));
+                uv.y = ((other.transform.position.y + 0.5f - (transform.position.y - (tex.height / 2 / 32))));
 
                 for (int x = -4; x < 4; x++)
                     for (int y = -4; y < 4; y++)
@@ -99,9 +103,9 @@ public class MarketingCanvas : MonoBehaviour {
                 Texture2D tex = rend.sprite.texture;
 
                 Vector2 uv;
-                uv.x = ((other.transform.position.x + 0.7f  - (transform.position.x - (tex.width / 2 / 32))));
-                uv.y = ((other.transform.position.y + 0.5f  - (transform.position.y - (tex.height / 2 / 32))));
-           
+                uv.x = ((other.transform.position.x + 0.7f - (transform.position.x - (tex.width / 2 / 32))));
+                uv.y = ((other.transform.position.y + 0.5f - (transform.position.y - (tex.height / 2 / 32))));
+
 
                 for (int x = -4; x < 4; x++)
                     for (int y = -4; y < 4; y++)
