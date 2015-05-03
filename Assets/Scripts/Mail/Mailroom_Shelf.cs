@@ -14,8 +14,8 @@ public class Mailroom_Shelf : MonoBehaviour {
 		
 	}
 
-	void OnTriggerEnter2D (Collider2D other) {
-		if (other.tag == "Player") {
+	void OnTriggerStay2D (Collider2D other) {
+		if (other.tag == "Player" && Input.GetKeyDown (KeyCode.Space)) {
 			mailroom.GetComponent<MailRoom> ().InitializeLevel ();
 			gameObject.GetComponent<BoxCollider2D> ().enabled = false;
 		}
