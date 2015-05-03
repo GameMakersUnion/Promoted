@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class PCManager : MonoBehaviour
 {
+    [HideInInspector]
     public List<PC> PCs = new List<PC>(); //populated from each child PC.
     //private const int goalReboots = 15;
     private const int goalLiving = 3;
@@ -16,6 +17,7 @@ public class PCManager : MonoBehaviour
     private Text textReboots;
     public bool hasWon = false;
     public bool hasLost = false;
+    private bool playerInside = false; 
 
     // Use this for initialization
     void Start ()
@@ -23,9 +25,9 @@ public class PCManager : MonoBehaviour
         //rand time
         //Random.seed = 42;
 
-        textTimer = GameObject.Find("Canvas/Timer/Outline").GetComponent<Text>();
+//        textTimer = GameObject.Find("Canvas/Timer/Outline").GetComponent<Text>();
 
-        textPCs = GameObject.Find("Canvas/PCs/Outline").GetComponent<Text>();
+//        textPCs = GameObject.Find("Canvas/PCs/Outline").GetComponent<Text>();
 
 
 	}
@@ -39,11 +41,11 @@ public class PCManager : MonoBehaviour
             time -= Time.deltaTime;
         }
 
-        textTimer.text = Mathf.CeilToInt(time).ToString();
+//        textTimer.text = Mathf.CeilToInt(time).ToString();
+//
+//        textPCs.text = Living().ToString();
 
-        textPCs.text = Living().ToString();
-
-        if(!hasLost)
+        if(!hasLost && PCs.Count > 0)
             if (CheckFailCondition())
             {
                 hasLost = true;
@@ -92,11 +94,23 @@ public class PCManager : MonoBehaviour
             GetComponentInChildren<Elevator>().Demote();
             GameObject killme = this.gameObject;
             GameObject birthme = Resources.Load<GameObject>("Prefabs/Levels/Level_B_02");
-            //GameObject.Find("GameManager").GetComponent<GameManager>().Restart(killme, birthme);
+            GameObject.Find("GameManager").GetComponent<GameManager>().Restart(killme, birthme);
             //restart
             return true;
         }
         return false;
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            playerInside = true;
+        }
+        else
+        {
+            playerInside = false;
+        }
     }
 
 }
