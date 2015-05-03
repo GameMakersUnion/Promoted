@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PC : PCManager
+public class PC : MonoBehaviour
 {
 
     private BoxCollider2D box;
-    private SpriteRenderer renderer;
+    private SpriteRenderer spriteRenderer;
     private Animator animator;
     private bool nearby = false;
     private Player player;
@@ -14,7 +14,8 @@ public class PC : PCManager
     private const float TIME_TO_FLAMES = 4f;
     private float timeToCrashStart; 
     private float timeToCrash; //assigned on start
-    private float health = 5f;  
+    private float health_ = 5f;  
+    public float health { get { return health_; } }
 
 
     private float timeCrashed = 0;
@@ -23,25 +24,28 @@ public class PC : PCManager
     private enum State { Booting, Stable, Crashed, Flaming, Burnt }
 
     private State state = State.Stable;
-    
+
+    private PCManager pcManager; 
+
 
     // Use this for initialization
     void Start () {
         box = gameObject.AddComponent<BoxCollider2D>();
         box.isTrigger = true;
-        renderer = gameObject.GetComponent<SpriteRenderer>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         animator = gameObject.GetComponent<Animator>();
         animator.SetBool("stable", true);
         player =  GameObject.FindWithTag("Player").GetComponent<Player>();
         timeToCrashStart = Random.Range(TIME_TO_BOOT + 1f, TIME_TO_BOOT + 6f);
         timeToCrash = timeToCrashStart;
-        PCs.Add(this);
+        pcManager = GameObject.Find("Level_B_02").GetComponent<PCManager>();
+        pcManager.PCs.Add(this);
     }
 
     private void Update()
     {
 
-//        Debug.Log(this.name + ": " + state + ", " + timeToCrash +","+ timeBooting + ", " + timeCrashed + ", " + health);
+//        Debug.Log(this.name + ": " + state + ", " + timeToCrash +","+ timeBooting + ", " + timeCrashed + ", " + health_);
 
         //exit early
         if (state == State.Burnt)
@@ -78,7 +82,8 @@ public class PC : PCManager
             state = State.Crashed;
             animator.SetBool("stable", false);
             animator.SetBool("crashed", true);
-//            Debug.Log("CRASHED");
+            SoundManager.Play(SoundManager.Sounds.ComputerError);
+            //            Debug.Log("CRASHED");
         }
 
         //VERY unstable 'puter
@@ -93,24 +98,25 @@ public class PC : PCManager
             state = State.Flaming;
             animator.SetBool("crashed", false);
             animator.SetBool("flaming", true);
+            SoundManager.Play(SoundManager.Sounds.FireCrackle);
         }
 
         //hurt 'puter
         if (state == State.Flaming)
         {
-            health -= Time.deltaTime;
+            health_ -= Time.deltaTime;
 
         }
 
         //go burnt
-        if (state == State.Flaming && health <= 0)
+        if (state == State.Flaming && health_ <= 0)
         {
             state = State.Burnt;
 //            animator.StopPlayback();
             animator.SetBool("flaming", false);
             animator.SetBool("crashed", true); //same thing
 //            animator.StartPlayback();
-            renderer.color = new Color(.2f, .2f, .2f);
+            spriteRenderer.color = new Color(.2f, .2f, .2f);
         }
 
     }
@@ -134,9 +140,9 @@ public class PC : PCManager
             animator.SetBool("flaming", false);
             animator.SetBool("booting", true);
 
+            SoundManager.Play(SoundManager.Sounds.ComputerStart);
+            pcManager.reboots++;
         }
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
