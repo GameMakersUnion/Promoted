@@ -61,7 +61,7 @@ public class MarketingManager : MonoBehaviour
             isDone = true;
         }
         int a = redPaint.throws + greenPaint.throws + bluePaint.throws;
-        Debug.Log(a);
+//        Debug.Log(a);
 
     }
 

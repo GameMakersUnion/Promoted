@@ -34,6 +34,9 @@ public class Fire : MonoBehaviour
             other.GetComponent<NPC>().onFire = true;
             fire.transform.parent = other.transform;
 
+            float x = Random.Range(-1, 1);
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(x, -50);
+
             firing = true;
 
             
