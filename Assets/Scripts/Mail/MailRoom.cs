@@ -9,6 +9,10 @@ public class MailRoom : MonoBehaviour {
 	enum MailColor {Red, Green, Blue, Yellow};
 	MailColor currentLetter;
 	Animator anim;
+	bool isActive = false;
+	int score = 0;
+	int scoreGoal = 5;
+	string animName;
 
 	// Use this for initialization
 	void Start () {
@@ -22,12 +26,14 @@ public class MailRoom : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (playerScript.isControllable == false) {
+		if (!playerScript.isControllable && isActive) {
 			if (Input.GetKeyDown(KeyCode.A) && currentPosX > 0) {
 				currentPosX--;
+				player.transform.localScale = new Vector3 (1,1,1);
 				player.transform.position = new Vector3(posX[currentPosX], player.transform.position.y, 0);
 			} else if (Input.GetKeyDown(KeyCode.D) && currentPosX < 3) {
 				currentPosX++;
+				player.transform.localScale = new Vector3 (-1,1,1);
 				player.transform.position = new Vector3(posX[currentPosX], player.transform.position.y, 0);
 			}
 			if (Input.GetKeyDown(KeyCode.Space)) {
@@ -37,32 +43,28 @@ public class MailRoom : MonoBehaviour {
 	}
 
 	public void InitializeLevel () {
+		isActive = true;
 		playerScript.isControllable = false;
-		//player.transform.position = new Vector3(posX[0], transform.position.y, 0);
-		currentLetter = (MailColor)(Random.Range(0, System.Enum.GetNames(typeof(MailColor)).Length));
-		switch (currentLetter) {
-		case MailColor.Red:
-			anim.SetBool ("isRunning", false);
-			anim.Play ("Mail_Red");
-			break;
-		case MailColor.Green:
-			anim.SetBool ("isRunning", false);
-			anim.Play ("Mail_Green");
-			break;
-		case MailColor.Blue:
-			anim.SetBool ("isRunning", false);
-			anim.Play ("Mail_Blue");
-			break;
-		case MailColor.Yellow:
-			anim.SetBool ("isRunning", false);
-			anim.Play ("Mail_Yellow");
-			break;
-		}
+		player.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+		player.transform.position = new Vector3(posX[currentPosX], player.transform.position.y, 0);
+		currentLetter = (MailColor)(Random.Range (0, System.Enum.GetNames (typeof(MailColor)).Length));
+		animName = "Mail_" + currentLetter;
+		anim.SetBool ("isRunning", false);
+		anim.Play (animName);
 	}
 
 	void ThrowMail () {
-		//if (currentLetter == ) {
-
-		//}
+		if (currentLetter == (MailColor)currentPosX) {
+			score++;
+			currentLetter = (MailColor)(Random.Range (0, System.Enum.GetNames (typeof(MailColor)).Length));
+			animName = "Mail_" + currentLetter;
+			anim.SetBool ("isRunning", false);
+			anim.Play (animName);
+			if (score == scoreGoal) {
+				// PROMOTED
+			}
+		} else {
+			// DEMOTED
+		}
 	}
 }
