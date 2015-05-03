@@ -35,10 +35,13 @@ public class TowerGenerator : MonoBehaviour {
 		AddFloor (levelFinal, levels + 1);
 	}
 
-	private GameObject AddFloor (GameObject level, int floorNum) {
+	private GameObject AddFloor (GameObject level, int floorNum)
+	{
+	    string name = level.name;
 		level = (GameObject)GameObject.Instantiate (level);
 		level.transform.position = new Vector3 (0, floorNum * scaleFactor, 0);
 		level.transform.parent = transform;
+	    level.name = name;
 		gameManager.floorArray [floorNum] = level;
         return level;
 	}
