@@ -8,7 +8,7 @@ public class LaundryManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+        SoundManager.Play(SoundManager.Sounds.WashingMachine);
 	}
 	
 	// Update is called once per frame

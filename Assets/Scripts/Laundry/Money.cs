@@ -68,4 +68,10 @@ public class Money : MonoBehaviour {
         }
         return dir.normalized;
     }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        SoundManager.Play(SoundManager.Sounds.Thud);
+
+    }
 }

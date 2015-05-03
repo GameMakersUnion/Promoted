@@ -52,7 +52,7 @@ public class HoldableBoss : MonoBehaviour {
             rb.isKinematic = false;
             GetComponentInParent<BossManager>().isHolding = false;
             GetComponentInChildren<PickupBoss>().gameObject.layer = 1;
-            GetComponent<Paint>().Thrown();
+            //GetComponent<Paint>().Thrown();
             //Vector2 throwDirection = new Vector2(playerRb.velocity.normalized.x,0.0f) ;
             Vector2 throwDirection = new Vector2(playerRb.velocity.normalized.x, playerRb.velocity.normalized.y);
             rb.AddForce(Vector2.right * throwForce, ForceMode2D.Impulse);
