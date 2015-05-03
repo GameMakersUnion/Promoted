@@ -18,13 +18,15 @@ public class Pickup : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
-             
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            if(parentMarketingManager.isHolding == false) { 
-                parentMarketingManager.isHolding = true;
-                gameObject.layer = 9;
-                parentHoldable.PickUp();
+        Debug.Log(other.tag);
+        if(other.tag == "Player") { 
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                if(parentMarketingManager.isHolding == false) { 
+                    parentMarketingManager.isHolding = true;
+                    gameObject.layer = 9;
+                    parentHoldable.PickUp();
+                }
             }
         }
     }

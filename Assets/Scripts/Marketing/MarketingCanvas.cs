@@ -4,9 +4,11 @@ using System.Collections;
 public class MarketingCanvas : MonoBehaviour {
     private SpriteRenderer rend;
     private Color[] colors;
+    private MarketingManager marketingManager;
     // Use this for initialization
     void Start () {
         rend = GetComponent("SpriteRenderer") as SpriteRenderer;
+        marketingManager = GetComponentInParent<MarketingManager>();
         int mipCount = Mathf.Min(3, rend.sprite.texture.mipmapCount);
 
         for (var mip = 0; mip < mipCount; ++mip)
@@ -35,7 +37,7 @@ public class MarketingCanvas : MonoBehaviour {
 	}
     void OnTriggerStay2D(Collider2D other)
     {
-        if(other.tag == "MarketingPaint")
+        if(other.tag == "MarketingPaint" && !marketingManager.isHolding)
         {
         
 
@@ -49,8 +51,8 @@ public class MarketingCanvas : MonoBehaviour {
                 Texture2D tex = rend.sprite.texture;
 
                 Vector2 uv;
-                uv.x = ((other.transform.position.x - (transform.position.x - (tex.width / 2 / 32))));
-                uv.y = ((other.transform.position.y - (transform.position.y - (tex.height / 2 / 32))));
+                uv.x = ((other.transform.position.x + 0.7f - (transform.position.x - (tex.width / 2 / 32))));
+                uv.y = ((other.transform.position.y + 0.5f - (transform.position.y - (tex.height / 2 / 32))));
 
                 for (int x = -4; x < 4; x++)
                     for (int y = -4; y < 4; y++)
@@ -76,8 +78,8 @@ public class MarketingCanvas : MonoBehaviour {
                 Texture2D tex = rend.sprite.texture;
 
                 Vector2 uv;
-                uv.x = ((other.transform.position.x - (transform.position.x- (tex.width/2/32))));
-                uv.y = ((other.transform.position.y - (transform.position.y- (tex.height/2/32))));
+                uv.x = ((other.transform.position.x + 0.7f - (transform.position.x- (tex.width/2/32))));
+                uv.y = ((other.transform.position.y + 0.5f - (transform.position.y- (tex.height/2/32))));
 
                 for (int x = -4; x < 4; x++)
                     for (int y = -4; y < 4; y++)
@@ -97,8 +99,8 @@ public class MarketingCanvas : MonoBehaviour {
                 Texture2D tex = rend.sprite.texture;
 
                 Vector2 uv;
-                uv.x = ((other.transform.position.x - (transform.position.x - (tex.width / 2 / 32))));
-                uv.y = ((other.transform.position.y - (transform.position.y - (tex.height / 2 / 32))));
+                uv.x = ((other.transform.position.x + 0.7f  - (transform.position.x - (tex.width / 2 / 32))));
+                uv.y = ((other.transform.position.y + 0.5f  - (transform.position.y - (tex.height / 2 / 32))));
            
 
                 for (int x = -4; x < 4; x++)

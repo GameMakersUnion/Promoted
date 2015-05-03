@@ -39,9 +39,11 @@ public class Holdable : MonoBehaviour
 
     public void PickUp()
     {
-        isHolding = true;
-        pickupTime = Time.time;
-        rb.isKinematic = true;
+        if(GetComponent<Paint>().throws > 0) {
+            isHolding = true;
+            pickupTime = Time.time;
+            rb.isKinematic = true;
+        }
     }
 
     public void Throw()
@@ -51,6 +53,7 @@ public class Holdable : MonoBehaviour
             rb.isKinematic = false;
             GetComponentInParent<MarketingManager>().isHolding = false;
             GetComponentInChildren<Pickup>().gameObject.layer = 1;
+            GetComponent<Paint>().Thrown();
             //Vector2 throwDirection = new Vector2(playerRb.velocity.normalized.x,0.0f) ;
             Vector2 throwDirection = new Vector2(playerRb.velocity.normalized.x, playerRb.velocity.normalized.y);
             rb.AddForce(throwDirection * throwForce, ForceMode2D.Impulse);
