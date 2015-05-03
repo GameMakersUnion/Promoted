@@ -18,7 +18,6 @@ public class Pickup : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log(other.tag);
         if(other.tag == "Player") { 
             if (Input.GetKeyDown(KeyCode.J))
             {

@@ -18,7 +18,8 @@ public class TowerGenerator : MonoBehaviour {
 
 	private void GenerateTower () {
 		int rand;
-		AddFloor (levelLobby, 0);
+		GameObject go = AddFloor (levelLobby, 0);
+        go.GetComponentInChildren<Elevator>().isActive = true;// Active the first floor automatically
 		for (int i = 1; i <= levels; i++) {
 			if (i <= levels / 3) {
 				rand = Random.Range (0, levelsA.Length);
@@ -34,10 +35,11 @@ public class TowerGenerator : MonoBehaviour {
 		AddFloor (levelFinal, levels + 1);
 	}
 
-	private void AddFloor (GameObject level, int floorNum) {
+	private GameObject AddFloor (GameObject level, int floorNum) {
 		level = (GameObject)GameObject.Instantiate (level);
 		level.transform.position = new Vector3 (0, floorNum * scaleFactor, 0);
 		level.transform.parent = transform;
 		gameManager.floorArray [floorNum] = level;
+        return level;
 	}
 }

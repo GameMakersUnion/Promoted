@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour {
 
 	public void Promote () {
 		currentFloor++;
-		// stop previous level, play animaiton, start next level
+        // stop previous level, play animaiton, start next level
+        if (floorArray != null)
+        {
+            floorArray[currentFloor].GetComponentInChildren<Elevator>().isActive = true;
+        }
 	}
 }

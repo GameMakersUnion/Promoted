@@ -1,17 +1,14 @@
 fileFormatVersion: 2
-guid: f558a05d55033ac4a96cbd783424dc4d
-timeCreated: 1430645800
+guid: 5bc10844a1cb8d045b628ec4ab50fefc
+timeCreated: 1430650803
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: elevatoropenclose_0
-    21300002: elevatoropenclose_1
-    21300004: elevatoropenclose_2
-    21300006: elevatoropenclose_3
-    21300008: elevatoropenclose_4
-    21300010: elevatoropenclose_5
-    21300012: elevatoropenclose_6
-    21300014: elevatoropenclose_7
+    21300000: Letters_0
+    21300002: Letters_1
+    21300004: Letters_2
+    21300006: Letters_3
+    21300008: Letters_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -57,83 +54,53 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: elevatoropenclose_0
+    - name: Letters_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 0
-        width: 68
-        height: 61
+        width: 5
+        height: 3
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: elevatoropenclose_1
+    - name: Letters_1
       rect:
         serializedVersion: 2
-        x: 72
+        x: 5
         y: 0
-        width: 68
-        height: 61
+        width: 5
+        height: 3
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: elevatoropenclose_2
+    - name: Letters_2
       rect:
         serializedVersion: 2
-        x: 142
+        x: 10
         y: 0
-        width: 68
-        height: 61
+        width: 5
+        height: 3
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: elevatoropenclose_3
+    - name: Letters_3
       rect:
         serializedVersion: 2
-        x: 212
+        x: 15
         y: 0
-        width: 68
-        height: 61
+        width: 5
+        height: 3
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: elevatoropenclose_4
+    - name: Letters_4
       rect:
         serializedVersion: 2
-        x: 282
+        x: 20
         y: 0
-        width: 68
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: elevatoropenclose_5
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 0
-        width: 68
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: elevatoropenclose_6
-      rect:
-        serializedVersion: 2
-        x: 422
-        y: 0
-        width: 68
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: elevatoropenclose_7
-      rect:
-        serializedVersion: 2
-        x: 492
-        y: 0
-        width: 68
-        height: 61
+        width: 5
+        height: 3
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
