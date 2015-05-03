@@ -48,7 +48,7 @@ public class Treadmill : MonoBehaviour {
 
         }
 //        Debug.Log(laundryManagerScript.MoneyCount() + " " + laundryManagerScript.goal);
-            if (laundryManagerScript.MoneyCount() > laundryManagerScript.goal)
+         if (laundryManagerScript.MoneyCount() > laundryManagerScript.goal && !isComplete)
         {
             Debug.Log("Promoted");
             gameStart = false;
