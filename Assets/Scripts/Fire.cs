@@ -38,8 +38,8 @@ public class Fire : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(x, -50);
 
             firing = true;
+            transform.parent.GetComponent<FireCastManager>().firedCount++;
 
-            
         }
     }
 
