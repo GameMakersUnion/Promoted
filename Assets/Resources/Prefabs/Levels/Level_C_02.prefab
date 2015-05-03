@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &104336
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 404170}
+  m_Layer: 0
+  m_Name: PickupTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &172900
 GameObject:
   m_ObjectHideFlags: 0
@@ -49,7 +64,8 @@ GameObject:
   - 212: {fileID: 21263882}
   - 61: {fileID: 6157774}
   - 50: {fileID: 5010002}
-  m_Layer: 0
+  - 114: {fileID: 11447978}
+  m_Layer: 9
   m_Name: PaintGreen
   m_TagString: MarketingPaint
   m_Icon: {fileID: 0}
@@ -67,7 +83,7 @@ GameObject:
   - 212: {fileID: 21201284}
   - 61: {fileID: 6153508}
   - 50: {fileID: 5051834}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PaintBlue
   m_TagString: MarketingPaint
   m_Icon: {fileID: 0}
@@ -85,13 +101,26 @@ GameObject:
   - 212: {fileID: 21296338}
   - 61: {fileID: 6134622}
   - 50: {fileID: 5067514}
-  m_Layer: 0
+  - 114: {fileID: 11497232}
+  m_Layer: 9
   m_Name: PaintRed
   m_TagString: MarketingPaint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &404170
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104336}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 438148}
+  m_RootOrder: 0
 --- !u!4 &410564
 Transform:
   m_ObjectHideFlags: 1
@@ -113,7 +142,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.72000003, y: .660000026, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 404170}
   m_Father: {fileID: 448648}
   m_RootOrder: 3
 --- !u!4 &448648
@@ -314,6 +344,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2a9d039cb5682e4e9245bacfdd72fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11447978
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66208298405ae0a4b946c77104c438ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11497232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66208298405ae0a4b946c77104c438ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21201284
