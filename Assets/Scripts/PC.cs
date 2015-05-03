@@ -25,7 +25,9 @@ public class PC : MonoBehaviour
 
     private State state = State.Stable;
 
-    private PCManager pcManager; 
+    private PCManager pcManager;
+
+    private bool okReboot =false;
 
 
     // Use this for initialization
@@ -44,8 +46,9 @@ public class PC : MonoBehaviour
 
     private void Update()
     {
+        okReboot = this.transform.parent.parent.GetComponent<PCManager>().playerInside;
 
-//        Debug.Log(this.name + ": " + state + ", " + timeToCrash +","+ timeBooting + ", " + timeCrashed + ", " + health_);
+        //        Debug.Log(this.name + ": " + state + ", " + timeToCrash +","+ timeBooting + ", " + timeCrashed + ", " + health_);
 
         if (pcManager.hasWon)
         {
@@ -54,6 +57,11 @@ public class PC : MonoBehaviour
 
         //exit early
         if (state == State.Burnt)
+        {
+            return;
+        }
+
+        if (!okReboot)
         {
             return;
         }
@@ -133,8 +141,13 @@ public class PC : MonoBehaviour
             return;
         }
 
+        if (!okReboot)
+        {
+            return;
+        }
+
         //do main logic here
-        if (nearby && player.activating && (state == State.Crashed || state == State.Flaming))
+        if (okReboot && nearby && player.activating && (state == State.Crashed || state == State.Flaming))
         {
             state = State.Booting;
             timeBooting = 0;

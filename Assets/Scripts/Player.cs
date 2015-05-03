@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
         {Action.Right, KeyCode.D },
         {Action.Jump, KeyCode.Space},
         {Action.Elevate, KeyCode.W },
-        {Action.Action1, KeyCode.F },
+        {Action.Action1, KeyCode.J },
         {Action.Grab, KeyCode.LeftShift}
     };
 

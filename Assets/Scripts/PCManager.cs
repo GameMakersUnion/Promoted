@@ -17,7 +17,7 @@ public class PCManager : MonoBehaviour
     private Text textReboots;
     public bool hasWon = false;
     public bool hasLost = false;
-    private bool playerInside = false; 
+    public bool playerInside = false; 
 
     // Use this for initialization
     void Start ()
@@ -35,7 +35,15 @@ public class PCManager : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        
+
+        bool okReboot = this.GetComponent<PCManager>().playerInside;
+
+        if (!okReboot)
+        {
+            return;
+        }
+
+
         if (time > 0)
         {
             time -= Time.deltaTime;
@@ -101,16 +109,30 @@ public class PCManager : MonoBehaviour
         return false;
     }
 
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            playerInside = true;
+        }
+    }
+
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
             playerInside = true;
         }
-        else
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player")
         {
             playerInside = false;
         }
     }
+
 
 }

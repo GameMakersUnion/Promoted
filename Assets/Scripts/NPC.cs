@@ -10,6 +10,9 @@ public class NPC : MonoBehaviour
     private float speedTime;
     private int walkDir;
 
+    public bool onFire = false;
+    private float dieTime = 3f;
+
     // Use this for initialization
     void Start () {
         body = gameObject.GetComponent<Rigidbody2D>();
@@ -22,6 +25,11 @@ public class NPC : MonoBehaviour
     // Update is called once per frame
     void Update ()
 	{
+        if (onFire)
+        {
+            DieSoon();
+            return;
+        }
 
 	    if (walkTime > 0)
 	    {
@@ -48,6 +56,15 @@ public class NPC : MonoBehaviour
         transform.localScale = new Vector3(1f, 1f, 1f);
         body.velocity = new Vector2( speed * walkDir, body.velocity.y);
 
+    }
+
+    private void DieSoon()
+    {
+        dieTime -= Time.deltaTime;
+        if (dieTime <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 }
