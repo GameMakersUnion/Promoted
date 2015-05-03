@@ -89,7 +89,7 @@ public class Player : MonoBehaviour {
                 RaycastHit2D other = Physics2D.Raycast(transform.position, Vector3.down, legs*1.1f, layerMask);
                 if (other)
                 {
-                    Debug.Log(other.collider.gameObject.layer);
+//                    Debug.Log(other.collider.gameObject.layer);
                     if (!other.collider.isTrigger) //No more wall jumping on triggers =P - Vic
                         if (!other.collider.GetComponentInChildren<Collider2D>().isTrigger) //No more wall jumping on triggers =P - Vic
                             body.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
@@ -99,12 +99,6 @@ public class Player : MonoBehaviour {
             if (Input.GetKey(Do[Action.Elevate]))
             {
                 //liam does this
-            }
-
-            // Action1 (launch mail)
-            if (Input.GetKeyDown(Do[Action.Action1]))
-            {
-                //get from script attached to level Action Map
             }
 
             // Action1 (launch mail)

@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 guid: d2600332ea195df478f0f8c5e06d6042
-timeCreated: 1430633699
+timeCreated: 1430635153
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Man1Spritesheet_0
+    21300002: Man1Spritesheet_1
+    21300004: Man1Spritesheet_2
+    21300006: Man1Spritesheet_3
+    21300008: Man1Spritesheet_4
+    21300010: Man1Spritesheet_5
+    21300012: Man1Spritesheet_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -48,7 +55,77 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Man1Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Man1Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 0
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Man1Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 0
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Man1Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Man1Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Man1Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 0
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Man1Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

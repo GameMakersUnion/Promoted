@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 guid: 707e2ab9b2f137e469e02aee8945f07c
-timeCreated: 1430633699
+timeCreated: 1430635031
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Woman1SpriteSheet_0
+    21300002: Woman1SpriteSheet_1
+    21300004: Woman1SpriteSheet_2
+    21300006: Woman1SpriteSheet_3
+    21300008: Woman1SpriteSheet_4
+    21300010: Woman1SpriteSheet_5
+    21300012: Woman1SpriteSheet_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -48,7 +55,77 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Woman1SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 13
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Woman1SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 0
+        width: 13
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Woman1SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 13
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Woman1SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 0
+        width: 13
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Woman1SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 0
+        width: 13
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Woman1SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 0
+        width: 13
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Woman1SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 0
+        width: 13
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
