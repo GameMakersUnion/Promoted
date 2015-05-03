@@ -98,6 +98,7 @@ public class Elevator : MonoBehaviour {
         gameManager.Promote(); // Increment The Level
         anim.SetBool("Opening", true);
         anim.SetBool("Closing", false);
+        SoundManager.Play(SoundManager.Sounds.Promotion);
     }
 
     public void Demote()
