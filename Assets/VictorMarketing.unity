@@ -270,9 +270,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11447978, guid: cd25486b0e94a41beb742fbbb2a69fd5, type: 2}
-    - {fileID: 11497232, guid: cd25486b0e94a41beb742fbbb2a69fd5, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd25486b0e94a41beb742fbbb2a69fd5, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &689595431
@@ -457,6 +455,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 830848957}
+--- !u!1 &878651267 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 172900, guid: cd25486b0e94a41beb742fbbb2a69fd5, type: 2}
+  m_PrefabInternal: {fileID: 676255609}
+--- !u!114 &878651274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 878651267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07de1280016111341be1879895067488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHolding: 0
 --- !u!1 &898128413
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,34 +843,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 250, y: 30}
   m_Pivot: {x: .5, y: .5}
---- !u!1 &1427007555 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 104336, guid: cd25486b0e94a41beb742fbbb2a69fd5, type: 2}
-  m_PrefabInternal: {fileID: 676255609}
---- !u!114 &1427007556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1427007555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66208298405ae0a4b946c77104c438ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1427007557
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1427007555}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: -.0121629238, y: .020272553}
-  serializedVersion: 2
-  m_Size: {x: .50533551, y: .553991735}
 --- !u!1 &2122900289
 GameObject:
   m_ObjectHideFlags: 0

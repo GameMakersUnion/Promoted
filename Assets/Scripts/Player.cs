@@ -6,7 +6,7 @@ public class Player : MonoBehaviour {
 	public float speed = 4;
 	public float jumpPower = 10;
 	Rigidbody2D body;
-	int layerMask = 1 << 2;
+	int layerMask = ((1 << 2) | (1 << 9));
     public bool isControllable; //I know public access is bad, =P - Victor
 	Animator anim;
 
@@ -71,8 +71,10 @@ public class Player : MonoBehaviour {
                 RaycastHit2D other = Physics2D.Raycast(transform.position, Vector3.down, legs*1.1f, layerMask);
                 if (other)
                 {
+                    Debug.Log(other.collider.gameObject.layer);
                     if (!other.collider.isTrigger) //No more wall jumping on triggers =P - Vic
-                        body.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
+                        if (!other.collider.GetComponentInChildren<Collider2D>().isTrigger) //No more wall jumping on triggers =P - Vic
+                            body.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
                 }
             }
             // Elevate 

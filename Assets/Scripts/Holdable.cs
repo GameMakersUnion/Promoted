@@ -4,84 +4,58 @@ using System.Collections;
 
 //drag this script onto objects you want to be holdable!
 
-[RequireComponent(typeof(PolygonCollider2D))]
-[RequireComponent(typeof(CircleCollider2D))]
-[RequireComponent(typeof(Rigidbody2D))]
 public class Holdable : MonoBehaviour
 {
-
-    private Collider2D polygonCollider2d;
-    private Collider2D circleCollider2d;
-    private Rigidbody2D rigidbody2d;
-    private Player player;
-    private bool nearby = false;
+    private bool isHolding = false;
+    private GameObject player;
+    private Player playerScript;
+    private Rigidbody2D playerRb;
+    private Rigidbody2D rb;
+    private float throwForce = 10.0f;
+    private float throwDelay = 0.25f;
+    private float pickupTime;
 
     // Use this for initialization
     private void Start()
     {
-        polygonCollider2d = GetComponent<PolygonCollider2D>();
-        if (polygonCollider2d == null)
-        {
-            gameObject.AddComponent<PolygonCollider2D>();
-            polygonCollider2d = GetComponent<PolygonCollider2D>();
-            polygonCollider2d.isTrigger = true;
-        }
-
-
-        circleCollider2d = GetComponent<CircleCollider2D>();
-        if (circleCollider2d == null)
-        {
-            gameObject.AddComponent<CircleCollider2D>();
-            circleCollider2d = GetComponent<CircleCollider2D>();
-            ((CircleCollider2D) circleCollider2d).radius = .1f;
-        }
-
-        rigidbody2d = GetComponent<Rigidbody2D>();
-        if (rigidbody2d == null)
-        {
-            gameObject.AddComponent<Rigidbody2D>();
-            rigidbody2d = GetComponent<Rigidbody2D>();
-        }
+        player = GameObject.Find("Player") as GameObject;
+        playerScript = player.GetComponent<Player>();
+        playerRb = player.GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    private void FixedUpdate()
+    private void Update()
     {
-        if (player == null)
+        if (isHolding)
         {
-            return;
+            transform.position = player.transform.position;
+            if (Input.GetKeyUp(KeyCode.J))
+            {
+                Throw();
+            }
         }
+    }
 
-        //do main logic here
-        if (nearby && player.grabbing)
-        {
-            this.transform.position = player.transform.position;
+    public void PickUp()
+    {
+        isHolding = true;
+        pickupTime = Time.time;
+        rb.isKinematic = true;
+    }
+
+    public void Throw()
+    {
+        if(Time.time - pickupTime > throwDelay) { 
+            isHolding = false;
+            rb.isKinematic = false;
+            GetComponentInParent<MarketingManager>().isHolding = false;
+            GetComponentInChildren<Pickup>().gameObject.layer = 1;
+            //Vector2 throwDirection = new Vector2(playerRb.velocity.normalized.x,0.0f) ;
+            Vector2 throwDirection = new Vector2(playerRb.velocity.normalized.x, playerRb.velocity.normalized.y);
+            rb.AddForce(throwDirection * throwForce, ForceMode2D.Impulse);
         }
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Player")
-        {
-            player = other.gameObject.GetComponent<Player>();
-            nearby = true;
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.tag == "Player")
-        {
-            nearby = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag == "Player")
-        {
-            nearby = false;
-        }
-    }
 }
