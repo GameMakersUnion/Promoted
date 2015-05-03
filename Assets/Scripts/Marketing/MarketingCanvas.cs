@@ -55,8 +55,8 @@ public class MarketingCanvas : MonoBehaviour
                 Texture2D tex = rend.sprite.texture;
 
                 Vector2 uv;
-                uv.x = ((other.transform.position.x + 0.7f - (transform.position.x - (tex.width / 2 / 32))));
-                uv.y = ((other.transform.position.y + 0.5f - (transform.position.y - (tex.height / 2 / 32))));
+                uv.x = ((other.transform.position.x + 0.13f - (transform.position.x - (tex.width / 2 / 32))));
+                uv.y = ((other.transform.position.y + 0.15f - (transform.position.y - (tex.height / 2 / 32))));
 
                 for (int x = -4; x < 4; x++)
                     for (int y = -4; y < 4; y++)
@@ -82,8 +82,8 @@ public class MarketingCanvas : MonoBehaviour
                 Texture2D tex = rend.sprite.texture;
 
                 Vector2 uv;
-                uv.x = ((other.transform.position.x + 0.7f - (transform.position.x - (tex.width / 2 / 32))));
-                uv.y = ((other.transform.position.y + 0.5f - (transform.position.y - (tex.height / 2 / 32))));
+                uv.x = ((other.transform.position.x + 0.13f - (transform.position.x - (tex.width / 2 / 32))));
+                uv.y = ((other.transform.position.y + 0.15f - (transform.position.y - (tex.height / 2 / 32))));
 
                 for (int x = -4; x < 4; x++)
                     for (int y = -4; y < 4; y++)
@@ -103,8 +103,8 @@ public class MarketingCanvas : MonoBehaviour
                 Texture2D tex = rend.sprite.texture;
 
                 Vector2 uv;
-                uv.x = ((other.transform.position.x + 0.7f - (transform.position.x - (tex.width / 2 / 32))));
-                uv.y = ((other.transform.position.y + 0.5f - (transform.position.y - (tex.height / 2 / 32))));
+                uv.x = ((other.transform.position.x + 0.13f - (transform.position.x - (tex.width / 2 / 32))));
+                uv.y = ((other.transform.position.y + 0.15f - (transform.position.y - (tex.height / 2 / 32))));
 
 
                 for (int x = -4; x < 4; x++)
