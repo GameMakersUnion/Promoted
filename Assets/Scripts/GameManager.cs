@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
-	public int totalLevels = 12; // Does not include lobby / top floor
+	public int totalLevels = 6; // Does not include lobby / top floor
 	public int timeLimit = 100;
 	public GameObject[] floorArray;
 
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 	public void Promote () {
 		currentFloor++;
         // stop previous level, play animaiton, start next level
-        if (floorArray != null)
+        if (floorArray != null && currentFloor < floorArray.Length)
         {
             floorArray[currentFloor].GetComponentInChildren<Elevator>().isActive = true;
         }
