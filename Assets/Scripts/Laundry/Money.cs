@@ -26,6 +26,7 @@ public class Money : MonoBehaviour {
         output = GameObject.Find("LaundryOutput");
         laundryManager = GameObject.Find("LaundryManager");
         rb.gravityScale = 1.0f;
+        SoundManager.Play(SoundManager.Sounds.Woosh);
 
     }
 	

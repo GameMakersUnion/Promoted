@@ -34,6 +34,18 @@ public class Paint : MonoBehaviour
         {
             startDestroy = Time.time;
             isDone = true;
+        }else
+        {
+            SoundManager.Play(SoundManager.Sounds.Woosh);
         }
+
     }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        SoundManager.Play(SoundManager.Sounds.Thud);
+
+    }
+
+
 }
