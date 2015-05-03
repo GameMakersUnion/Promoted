@@ -94,7 +94,7 @@ public class PCManager : MonoBehaviour
 
     bool CheckFailCondition()
     {
-        Debug.Log(Living());
+//        Debug.Log(Living());
 
         if (time <= 0 && Living() < goalLiving || Living() <= 0)
         {

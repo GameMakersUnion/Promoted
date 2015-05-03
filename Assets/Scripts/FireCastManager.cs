@@ -53,7 +53,7 @@ public class FireCastManager : MonoBehaviour
 	    }
 
         //activate win cond:
-        if (firedCount > FIRE_GOAL)
+        if (firedCount > FIRE_GOAL && !hasWon)
         {
             hasWon = true;
             GetComponentInChildren<Elevator>().Promote();
