@@ -114,6 +114,7 @@ public class PCManager : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            Debug.Log("INSIDE");
             playerInside = true;
         }
     }
