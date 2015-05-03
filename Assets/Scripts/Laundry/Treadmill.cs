@@ -8,6 +8,7 @@ public class Treadmill : MonoBehaviour {
     private Player playerScript;
     private LaundryIn laundryIn;
     private LaundryManager laundryManagerScript;
+    private Rigidbody2D playerRb;
     private bool gameStart;
     private bool isComplete;
     private bool isRight;
@@ -22,6 +23,7 @@ public class Treadmill : MonoBehaviour {
         playerScript = playerObject.GetComponent("Player") as Player;
         laundryIn = inputObject.GetComponent("LaundryIn") as LaundryIn;
         laundryManagerScript = inputObject.GetComponent("LaundryManager") as LaundryManager;
+        playerRb = playerObject.GetComponent("Rigidbody2D") as Rigidbody2D;
 
         gameStart = false;
         isComplete = false;
@@ -48,10 +50,11 @@ public class Treadmill : MonoBehaviour {
 	}
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player" && !isComplete)
+        if(other.tag == "Player" && !isComplete && !gameStart)
         {
             playerScript.isControllable = false;
-            playerObject.transform.position = transform.position;
+            playerRb.velocity = Vector2.zero;
+            playerObject.transform.position = new Vector2(transform.position.x - 0.3f, transform.position.y+0.3f);
             gameStart = true;
         }
     }
