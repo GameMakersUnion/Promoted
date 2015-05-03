@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class PCManager : MonoBehaviour
 {
     public List<PC> PCs = new List<PC>(); //populated from each child PC.
-    private const int goalReboots = 15;
+    //private const int goalReboots = 15;
+    private const int goalLiving = 3;
     public int reboots = 0;
     private float time = 60f;
     private Text textTimer;
@@ -37,8 +38,6 @@ public class PCManager : MonoBehaviour
 
         textPCs.text = Living().ToString();
 
-        textReboots.text = reboots + "-" + goalReboots;
-
         if (PCs.Count <= 5)
         {
             textPCs.color = Color.green;
@@ -67,6 +66,19 @@ public class PCManager : MonoBehaviour
             }
         }
         return living;
+    }
+
+    bool CheckWinCondition()
+    {
+        if (time <= 0 && PCs.Count > goalLiving)
+        {
+
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }
