@@ -286,11 +286,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelsA:
-  - {fileID: 102912, guid: 54da3b04b5b6141b6a0571419e02f901, type: 2}
-  - {fileID: 129798, guid: d8c98a542679f40539edc9d91019701f, type: 2}
   - {fileID: 172900, guid: cd25486b0e94a41beb742fbbb2a69fd5, type: 2}
   levelsB:
-  - {fileID: 102912, guid: 54da3b04b5b6141b6a0571419e02f901, type: 2}
+  - {fileID: 129798, guid: d8c98a542679f40539edc9d91019701f, type: 2}
   levelsC:
   - {fileID: 102912, guid: 54da3b04b5b6141b6a0571419e02f901, type: 2}
   levelLobby: {fileID: 102912, guid: 54da3b04b5b6141b6a0571419e02f901, type: 2}

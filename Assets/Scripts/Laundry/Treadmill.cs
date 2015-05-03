@@ -22,7 +22,7 @@ public class Treadmill : MonoBehaviour {
         //Find References of Components
         playerScript = playerObject.GetComponent("Player") as Player;
         laundryIn = inputObject.GetComponent("LaundryIn") as LaundryIn;
-        laundryManagerScript = inputObject.GetComponent("LaundryManager") as LaundryManager;
+        laundryManagerScript = laundryManager.GetComponentInParent<LaundryManager>();
         playerRb = playerObject.GetComponent("Rigidbody2D") as Rigidbody2D;
 
         gameStart = false;
@@ -44,10 +44,20 @@ public class Treadmill : MonoBehaviour {
             {
                 isRight = !isRight;
             }
-            if (true) { }
+            
 
         }
-	}
+        Debug.Log(laundryManagerScript.MoneyCount() + " " + laundryManagerScript.goal);
+            if (laundryManagerScript.MoneyCount() > laundryManagerScript.goal)
+        {
+            Debug.Log("Promoted");
+            gameStart = false;
+            laundryManager.GetComponentInChildren<Elevator>().Promote();
+            playerScript.isControllable = true;
+            isComplete = true;
+        }
+       
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player" && !isComplete && !gameStart)
