@@ -6,7 +6,7 @@ public class FireCastManager : MonoBehaviour
 
     private GameObject player;
     public bool playerInside = false;
-    private const float FIRE_GOAL = 5;
+    private const float FIRE_GOAL = 15;
     public float firedCount = 0;
     private bool hasWon = false;
 
