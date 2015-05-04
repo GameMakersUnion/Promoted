@@ -12,7 +12,7 @@ public class Holdable : MonoBehaviour
     private Rigidbody2D playerRb;
     private Rigidbody2D rb;
     private float throwForce = 10.0f;
-    private float throwDelay = 0.25f;
+    private float throwDelay =0.25f;
     private float pickupTime;
 
     // Use this for initialization
@@ -37,18 +37,24 @@ public class Holdable : MonoBehaviour
         }
     }
 
-    public void PickUp()
+    public bool PickUp()
     {
-        if(GetComponent<Paint>().throws > 0) {
-            isHolding = true;
-            pickupTime = Time.time;
-            rb.isKinematic = true;
+        if (Time.time - pickupTime > throwDelay)
+        {
+            if (GetComponent<Paint>().throws > 0) {
+                isHolding = true;
+                pickupTime = Time.time;
+                rb.isKinematic = true;
+                return true;
+            }
+            return false;
         }
+        return false;
     }
 
     public void Throw()
     {
-        if(Time.time - pickupTime > throwDelay) { 
+        
             isHolding = false;
             rb.isKinematic = false;
             GetComponentInParent<MarketingManager>().isHolding = false;
@@ -56,8 +62,8 @@ public class Holdable : MonoBehaviour
             GetComponent<Paint>().Thrown();
             //Vector2 throwDirection = new Vector2(playerRb.velocity.normalized.x,0.0f) ;
             Vector2 throwDirection = new Vector2(playerRb.velocity.normalized.x, playerRb.velocity.normalized.y);
-            rb.AddForce(throwDirection * throwForce, ForceMode2D.Impulse);
-        }
+            rb.AddForce(throwDirection * throwForce + Vector2.up * 6.0f, ForceMode2D.Impulse);
+        
 
     }
 

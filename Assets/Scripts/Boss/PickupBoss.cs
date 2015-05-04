@@ -4,6 +4,7 @@ using System.Collections;
 public class PickupBoss : MonoBehaviour {
     private HoldableBoss parentHoldableBoss;
     private BossManager bossManager;
+    private Holdable holdable;
     // Use this for initialization
     void Start () {
         parentHoldableBoss = GetComponentInParent<HoldableBoss>();

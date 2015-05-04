@@ -27,9 +27,13 @@ public class Pickup : MonoBehaviour
             {
                 if (parentMarketingManager.isHolding == false)
                 {
-                    parentMarketingManager.isHolding = true;
-                    gameObject.layer = 9;
-                    parentHoldable.PickUp();
+                    //
+                    //
+                    if (parentHoldable.PickUp())
+                    {
+                        parentMarketingManager.isHolding = true;
+                        gameObject.layer = 9;
+                    }
                 }
             }
         }
