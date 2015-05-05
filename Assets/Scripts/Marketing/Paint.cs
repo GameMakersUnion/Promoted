@@ -34,10 +34,8 @@ public class Paint : MonoBehaviour
         {
             startDestroy = Time.time;
             isDone = true;
-        }else
-        {
-            SoundManager.Play(SoundManager.Sounds.Woosh);
         }
+        SoundManager.Play(SoundManager.Sounds.Woosh);
 
     }
 

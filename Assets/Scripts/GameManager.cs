@@ -13,6 +13,14 @@ public class GameManager : MonoBehaviour {
 		totalFloors = totalLevels + 2;
 	}
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
 	public void Promote () {
 		currentFloor++;
         // stop previous level, play animaiton, start next level

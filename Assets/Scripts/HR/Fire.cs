@@ -27,7 +27,7 @@ public class Fire : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("NPC") && !firing)
+        if (other.gameObject.layer == LayerMask.NameToLayer("NPC") && !firing && !other.GetComponent<NPC>().onFire)
         {
             GameObject fire = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/FirePerson"), other.transform.position, Quaternion.identity);
             //Destroy(hit.transform.gameObject);
@@ -39,6 +39,8 @@ public class Fire : MonoBehaviour
 
             firing = true;
             transform.parent.GetComponent<FireCastManager>().firedCount++;
+
+            SoundManager.Play(SoundManager.Sounds.FireCrackle);
 
         }
     }

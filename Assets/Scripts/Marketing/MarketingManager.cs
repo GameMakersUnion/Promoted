@@ -47,7 +47,7 @@ public class MarketingManager : MonoBehaviour
             playerScript.useBucket = true;
         if (isHolding == false)
             playerScript.useBucket = false;
-        if (redPaint.throws + greenPaint.throws + bluePaint.throws == 0 && !isDone)
+        if (/*redPaint.throws +*/ greenPaint.throws + bluePaint.throws == 0 && !isDone)
         {
             SpriteRenderer rend = paintCanvas.GetComponent<SpriteRenderer>();
             Debug.Log(paintedSurface());

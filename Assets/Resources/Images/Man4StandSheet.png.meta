@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 guid: 0a3fdfddb8ad034418fe32a887428153
-timeCreated: 1430685843
+timeCreated: 1430793393
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Man4StandSheet_0
+    21300002: Man4StandSheet_1
+    21300004: Man4StandSheet_2
+    21300006: Man4StandSheet_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -48,7 +52,47 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Man4StandSheet_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 13
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Man4StandSheet_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 0
+        width: 13
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Man4StandSheet_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 13
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Man4StandSheet_3
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 0
+        width: 13
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

@@ -50,7 +50,7 @@ public class FireCastManager : MonoBehaviour
             match.GetComponent<Rigidbody2D>().AddTorque(500f);
             match.AddComponent<Fire>();
 	        match.transform.parent = this.transform;
-
+            SoundManager.Play(SoundManager.Sounds.FireWoosh);
 	    }
 
         //activate win cond:
