@@ -1,0 +1,17 @@
+priroties
+
+- rebuild and reupload. s
+
+- not have all sound effects occur on web.
+
+- fix error message from audioManager? 
+
+- fix paint bucket issues: 1) where can't drop 2) first picked up can doesn't decrement
+
+- provide affordances like level title/ describe action.
+
+- migrate action code from person to level (standards!!!!)
+
+- fix elevator to hide person, not move buttons.
+
+- 
