@@ -27,7 +27,7 @@ public class HoldableBoss : MonoBehaviour {
         if (isHolding)
         {
             transform.position = player.transform.position;
-            if (playerScript.activating)
+            if (Input.GetKeyUp(KeyCode.J))
             {
                 Throw();
             }
