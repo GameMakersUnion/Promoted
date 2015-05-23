@@ -30,7 +30,7 @@ public class Holdable : MonoBehaviour
         if (isHolding)
         {
             transform.position = player.transform.position;
-            if (Input.GetKeyUp(KeyCode.J))
+            if (playerScript.lettingGo)
             {
                 Throw();
             }

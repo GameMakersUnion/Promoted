@@ -23,7 +23,7 @@ public class Pickup : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (Input.GetKeyDown(KeyCode.J))
+            if (other.GetComponent<Player>().activating)
             {
                 if (parentMarketingManager.isHolding == false)
                 {

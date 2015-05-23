@@ -11,23 +11,25 @@ public class Player : MonoBehaviour {
     public bool isControllable; //I know public access is bad, =P - Victor
 	Animator anim;
 
-    private enum Action {  Left, Right, Jump, Elevate, Action1, Grab };
+    private enum Action {  Left, Right, Jump, /*Elevate,*/ Action1 /*, Grab*/ };
 
     private Dictionary<Action, KeyCode> Do = new Dictionary<Action, KeyCode>()
     {
         {Action.Left, KeyCode.A },
         {Action.Right, KeyCode.D },
-        {Action.Jump, KeyCode.Space},
-        {Action.Elevate, KeyCode.W },
-        {Action.Action1, KeyCode.J },
-        {Action.Grab, KeyCode.LeftShift}
+        {Action.Jump, KeyCode.W},
+        //{Action.Elevate, KeyCode.W },
+        {Action.Action1, KeyCode.Space },
+        //{Action.Grab, KeyCode.LeftShift}
     };
 
     private float legs;
-    private bool grabbing_ = false;
-    public bool grabbing { get { return grabbing_; }  }
+    //private bool grabbing_ = false;
+    //public bool grabbing { get { return grabbing_; }  }
     private bool activating_ = false;
     public bool activating { get { return activating_; } }
+    private bool lettingGo_ = false;
+    public bool lettingGo { get { return lettingGo_; } }
 
 
     // Use this for initialization
@@ -96,16 +98,18 @@ public class Player : MonoBehaviour {
                 }
             }
             // Elevate 
-            if (Input.GetKey(Do[Action.Elevate]))
-            {
-                //liam does this
-            }
+            //if (Input.GetKey(Do[Action.Elevate]))
+            //{
+            //    //liam does this
+            //}
 
             // Action1 (launch mail)
             activating_ = (Input.GetKeyDown(Do[Action.Action1]));
 
             // Hold 
-            grabbing_ = (Input.GetKey(Do[Action.Grab]));
+            //grabbing_ = (Input.GetKey(Do[Action.Grab]));
+
+            lettingGo_ = (Input.GetKeyUp(Do[Action.Action1]));
 
         }
 

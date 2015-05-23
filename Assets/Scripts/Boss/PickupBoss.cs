@@ -19,7 +19,7 @@ public class PickupBoss : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            if (Input.GetKeyDown(KeyCode.J))
+            if (other.GetComponent<Player>().activating)
             {
                 if (bossManager.isHolding == false)
                 {
